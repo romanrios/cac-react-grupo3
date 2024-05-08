@@ -1,0 +1,60 @@
+.appBg {
+  min-height: 100vh;
+  width: 100vw;
+  padding: 1rem;
+  background-image: linear-gradient(
+    to top right,
+    rgb(54, 65, 217),
+    rgb(24, 129, 190)
+  );
+}
+
+.appContainer {
+  margin: auto;
+  background-color: #ffffffb6;
+  min-width: 300px;
+  max-width: 500px;
+  border-radius: 0.4rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+}
+
+.appHeading {
+  color: var(--primary-color);
+  font-weight: 900;
+  font-style: italic;
+  font-size: 2.2rem;
+  text-align: center;
+  padding: 0.8rem;
+}
+
+.appForm {
+  display: flex;
+  justify-content: space-between;
+  margin: 0.6rem 0;
+}
+
+.appInput {
+  border: none;
+  padding: 0.6rem;
+  width: 100%;
+  font-size: 1.25rem;
+}
+
+.appButton {
+  border: none;
+  padding: 1rem;
+  margin-left: 0.5rem;
+  background-color: var(--primary-color);
+  color: #ffffffe0;
+  cursor: pointer;
+}
+
+.appButton:hover {
+  opacity: 0.8;
+}
+
+.appCount {
+  text-align: center;
+  padding: 0.5rem;
+}

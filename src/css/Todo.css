@@ -1,0 +1,48 @@
+.todoLi {
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--white-alpha7);
+  padding: 0.6rem;
+  margin: 0.3rem 0;
+  text-transform: capitalize;
+}
+
+.todoLiComplete {
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--white-alpha4);
+  padding: 0.6rem;
+  margin: 0.3rem 0;
+  text-transform: capitalize;
+}
+
+.todoRow {
+  display: flex;
+}
+
+.todoRow input {
+  accent-color: var(--primary-color);
+}
+
+.todoText {
+  cursor: pointer;
+  margin-left: 0.5rem;
+}
+
+.todoTextComplete {
+  cursor: pointer;
+  text-decoration: line-through;
+  margin-left: 0.5rem;
+}
+
+.todoDelete {
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: var(--primary-color);
+  opacity: 0.7;
+}
+
+.todoDelete:hover {
+  opacity: 1;
+}

@@ -1,0 +1,22 @@
+/* Reset CSS */
+@import "./reset.css";
+
+/* Imports CSS */
+@import "./App.css";
+@import "./Todo.css";
+
+/* Variables */
+:root {
+  --primary-font: system-ui;
+  --primary-color: rgb(81, 29, 224);
+  --white-alpha4: rgba(255, 255, 255, 0.4);
+  --white-alpha7: rgba(255, 255, 255, 0.7);
+}
+
+/* CSS Global */
+#root {
+  display: flex;
+  justify-content: center;
+  font-family: var(--primary-font);
+  color: #222;
+}
