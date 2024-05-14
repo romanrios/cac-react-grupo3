@@ -6,7 +6,7 @@
 
 #root {
   min-height: 100vh;
-  min-width: 100vw;
+  min-width: 100%;
   background-color: azure;
   color: #1b1b32;
   display: flex;
@@ -16,16 +16,13 @@
 }
 
 .header {
-  line-height: 0;
-  padding: 20px 0;
-  width: 100vw;
+  padding: 15px 0;
   background-color: rgb(227, 231, 251);
   color: rgb(56, 56, 56);
 }
 
 /* Componente Show */
 .contenedorShow {
-  /* padding: 0 !important; */
   margin-top: 20px;
   display: flex;
   flex-direction: column;
