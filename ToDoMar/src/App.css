@@ -4,24 +4,29 @@
   box-sizing: border-box;
 }
 
-/*html,*/
-body {
+#root {
+  min-height: 100vh;
+  min-width: 100vw;
   background-color: azure;
   color: #1b1b32;
+  display: flex;
+  flex-direction: column;
   text-align: center;
-  justify-content: center;
+  justify-content: space-between;
 }
 
 .header {
-  padding: 15px;
-  background-color: rgb(227, 231, 251) !important;
+  line-height: 0;
+  padding: 20px 0;
+  width: 100vw;
+  background-color: rgb(227, 231, 251);
   color: rgb(56, 56, 56);
 }
 
 /* Componente Show */
 .contenedorShow {
-  /* padding: 10px; */
-  padding-top: 20px;
+  /* padding: 0 !important; */
+  margin-top: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -31,21 +36,26 @@ body {
 table,
 th,
 td {
+  font-weight: 400;
   border-collapse: collapse;
   border-bottom: 1px solid #ddd;
-  padding: 5px;
+  padding: 5px 0;
 }
+
 tr:hover {
-  background-color: rgb(172, 176, 248);
+  background-color: rgb(201, 203, 253);
 }
 
 .tablaTareas {
-  width: 80%;
-  border-spacing: 2px;
+  min-width: 300px;
+  max-width: 700px;
+  width: 95%;
+  flex: 1;
+  /* border-spacing: 2px; */
 }
 
 .tituloTabla {
-  background-color: rgb(218, 220, 220);
+  background-color: rgb(200, 188, 247);
 }
 
 /* tbody {
@@ -60,12 +70,31 @@ tr:hover {
   align-items: center;
 }
 
+.realizadaCheckbox {
+  border: none;
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.tdTarea {
+  text-align: start;
+}
+
+.tdTareaRealizada {
+  text-align: start;
+  text-decoration: line-through;
+}
+
+.fondoRealizada {
+  background-color: rgba(48, 44, 56, 0.082);
+}
+
 /* Componente Show */
 form {
   width: 80%;
   margin: auto;
   padding: 10px;
 }
+
 .inputs {
   display: flex;
   flex-direction: column;
@@ -77,7 +106,7 @@ form {
 input[type="text"],
 select {
   /* width: 60%; */
-  max-width: 320px;
+  max-width: 400px;
   padding: 3px 10px;
   margin: 10px 0;
   border: 1px solid #ccc;

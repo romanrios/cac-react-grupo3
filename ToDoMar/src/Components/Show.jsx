@@ -2,7 +2,13 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-import { collection, getDocs, deleteDoc, doc } from "firebase/firestore";
+import {
+  collection,
+  getDocs,
+  deleteDoc,
+  doc,
+  updateDoc,
+} from "firebase/firestore";
 import { db } from "../firebaseConfig/firebase.js";
 
 //sweet alert
@@ -14,6 +20,13 @@ const mySwal = withReactContent(Swal);
 export const Show = () => {
   const [tareas, setTareas] = useState([]);
   const tareasCollection = collection(db, "Tareas");
+
+  // Marcar tarea realizada
+  const updateRealizada = async (id, bool) => {
+    const realizadaDoc = doc(tareasCollection, id);
+    await updateDoc(realizadaDoc, { realizada: bool });
+    getTareas();
+  };
 
   // Esta va en el useEffect
   const getTareas = async () => {
@@ -66,25 +79,53 @@ export const Show = () => {
         <table className="tablaTareas">
           <thead className="tituloTabla">
             <tr>
-              <th>Tarea</th>
               <th>Realizada</th>
+              <th>Descripción de la Tarea</th>
               <th>Editar</th>
             </tr>
           </thead>
 
           <tbody>
             {tareas.map((tarea) => (
-              <tr key={tarea.id}>
-                <td>{tarea.tarea}</td>
+              <tr
+                className={tarea.realizada ? "fondoRealizada" : ""}
+                key={tarea.id}
+              >
+                <td>
+                  {tarea.realizada ? (
+                    <button
+                      className="realizadaCheckbox"
+                      onClick={() => updateRealizada(tarea.id, false)}
+                    >
+                      ✔️
+                    </button>
+                  ) : (
+                    <button
+                      className="realizadaCheckbox"
+                      onClick={() => updateRealizada(tarea.id, true)}
+                    >
+                      {" "}
+                      ⬜
+                    </button>
+                  )}
+                </td>
 
-                <td>{tarea.realizada ? "Si" : "No"}</td>
+                <td
+                  className={tarea.realizada ? "tdTareaRealizada" : "tdTarea"}
+                >
+                  {tarea.tarea}
+                </td>
 
                 <td className="editarTareas">
-                  <Link to={`edit/${tarea.id}`} className="btn btn-primary">
+                  <Link
+                    to={`edit/${tarea.id}`}
+                    className="btn btn-outline-primary btn-sm"
+                  >
                     <i className="fa-solid fa-pen-to-square"></i>
                   </Link>
+
                   <button
-                    className="btn btn-danger"
+                    className="btn btn-outline-danger btn-sm"
                     onClick={() => confirmDelete(tarea.id)}
                   >
                     <i className="fa-solid fa-trash"></i>
