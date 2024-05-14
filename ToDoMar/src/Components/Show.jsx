@@ -3,25 +3,19 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import { collection, getDocs, deleteDoc, doc } from "firebase/firestore";
-import { db } from "../firabaseConfig/firebase.js";
+import { db } from "../firebaseConfig/firebase.js";
 
 //sweet alert
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 const mySwal = withReactContent(Swal);
 
-//estilos
-// import "../styles/Show.css";
-
 //componente Show
 export const Show = () => {
-  //configurar el useState. Tareas es un array vacío y setTareas lo actualiza
   const [tareas, setTareas] = useState([]);
-
-  //referenciar ala basede datos de firestore.
   const tareasCollection = collection(db, "Tareas");
 
-  //función para mostrar los documentos de Tareas
+  // Esta va en el useEffect
   const getTareas = async () => {
     const data = await getDocs(tareasCollection);
 
@@ -33,14 +27,13 @@ export const Show = () => {
     );
   };
 
-  //función para borrar una tarea
   const deleteTarea = async (id) => {
     const tareasDoc = doc(tareasCollection, id);
     await deleteDoc(tareasDoc);
-    getTareas(); //invocamos a la función para que se actualice la tabla en la pantalla del usuario
+    getTareas(); // actualiza la tabla
   };
 
-  //funcióon para llamar a la ventana de sweetalert para confirmar la eliminación
+  // Confirmación Sweet Alert
   const confirmDelete = (id) => {
     Swal.fire({
       title: "¿Estás seguro?",
@@ -53,20 +46,19 @@ export const Show = () => {
       cancelButtonText: "Cancelar",
     }).then((result) => {
       if (result.isConfirmed) {
-        deleteTarea(id); //va acá porque quiero que borre el héroe cuando apreta el botón de confirmar
+        deleteTarea(id); // borra la tarea al confirmar
         Swal.fire({
           title: "¡Borrado!",
-          text: "Tu archivo fue eliminado.",
+          text: "La tarea fue eliminada.",
           icon: "success",
         });
       }
     });
   };
 
-  //useEffect
   useEffect(() => {
     getTareas();
-  }, [tareas]);
+  }, []);
 
   return (
     <>
@@ -85,14 +77,14 @@ export const Show = () => {
               <tr key={tarea.id}>
                 <td>{tarea.tarea}</td>
 
-                <td>{tarea.realizada}</td>
+                <td>{tarea.realizada ? "Si" : "No"}</td>
 
                 <td className="editarTareas">
-                  <Link to={`edit/${tarea.id}`} className="btn btn-light">
+                  <Link to={`edit/${tarea.id}`} className="btn btn-primary">
                     <i className="fa-solid fa-pen-to-square"></i>
                   </Link>
                   <button
-                    className="botonDelete"
+                    className="btn btn-danger"
                     onClick={() => confirmDelete(tarea.id)}
                   >
                     <i className="fa-solid fa-trash"></i>
@@ -106,7 +98,7 @@ export const Show = () => {
         <div>
           <br></br>
           <Link to="/create" className="crearTarea">
-            Agregar nueva tarea
+            <button className="btn btn-primary">Agregar nueva tarea</button>
           </Link>
         </div>
       </div>

@@ -6,6 +6,8 @@ import { Edit } from "./Components/Edit.jsx";
 
 import { Header } from "./Components/Header.jsx";
 
+// bootstrap
+import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
 function App() {
