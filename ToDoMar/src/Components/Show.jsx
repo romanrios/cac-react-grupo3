@@ -1,6 +1,7 @@
 //importaciones
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { Task } from "./Task.jsx";
 
 import {
   collection,
@@ -87,51 +88,12 @@ export const Show = () => {
 
           <tbody>
             {tareas.map((tarea) => (
-              <tr
-                className={tarea.realizada ? "fondoRealizada" : ""}
+              <Task
+                tarea={tarea}
                 key={tarea.id}
-              >
-                <td>
-                  {tarea.realizada ? (
-                    <button
-                      className="realizadaCheckbox"
-                      onClick={() => updateRealizada(tarea.id, false)}
-                    >
-                      ✔️
-                    </button>
-                  ) : (
-                    <button
-                      className="realizadaCheckbox"
-                      onClick={() => updateRealizada(tarea.id, true)}
-                    >
-                      {" "}
-                      ⬜
-                    </button>
-                  )}
-                </td>
-
-                <td
-                  className={tarea.realizada ? "tdTareaRealizada" : "tdTarea"}
-                >
-                  {tarea.tarea}
-                </td>
-
-                <td className="editarTareas">
-                  <Link
-                    to={`edit/${tarea.id}`}
-                    className="btn btn-outline-primary btn-sm"
-                  >
-                    <i className="fa-solid fa-pen-to-square"></i>
-                  </Link>
-
-                  <button
-                    className="btn btn-outline-danger btn-sm"
-                    onClick={() => confirmDelete(tarea.id)}
-                  >
-                    <i className="fa-solid fa-trash"></i>
-                  </button>
-                </td>
-              </tr>
+                updateRealizada={updateRealizada}
+                confirmDelete={confirmDelete}
+              />
             ))}
           </tbody>
         </table>
