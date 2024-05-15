@@ -1,5 +1,3 @@
-# CodoACodo React Grupo 3 🚀
-
 Codo a Codo 2024 | Especialización en React  | Comisión 24303 | Docente: [Gabriel Muñoz](https://github.com/DevJumpProf)
 
 <table>
@@ -26,21 +24,36 @@ Codo a Codo 2024 | Especialización en React  | Comisión 24303 | Docente: [Gabr
       <img src="https://github.com/romanrios/cac-react-grupo3/assets/122373737/1b10e1da-b362-4488-bd63-8460eabff8fd" alt="Node.js Logo" width="100px">
     </td>
     <td align="center" valign="middle">
-      <img src="https://github.com/romanrios/cac-react-grupo3/assets/122373737/74e240df-60e8-4579-9e42-7b152133c68a" alt="Vite.js Logo" width="100px">
+      <img src="https://github.com/romanrios/cac-react-grupo3/assets/122373737/74e240df-60e8-4579-9e42-7b152133c68a" alt="Vite.js Logo" width="90px">
     </td>
     <td align="center" valign="middle">
       <img src="https://github.com/romanrios/cac-react-grupo3/assets/122373737/5ca52139-a13c-4fe8-9816-48835368150f" alt="React Logo" width="100px">
     </td>
     <td align="center" valign="middle">
-      <img src="https://github.com/romanrios/cac-react-grupo3/assets/122373737/d028a3bf-abfd-479e-b166-82aa613b9d5b" alt="Bootstrap Logo" width="100px">
+      <img src="https://github.com/romanrios/cac-react-grupo3/assets/122373737/6a73a20b-1bd0-4aa6-938d-3554261c293c" alt="Firebase Icon" width="100px">
+    </td>  
+    </tr>
+    </table>
+ 
+
+<table>
+     <tr>
+    <td align="center" valign="middle">
+      <img src="https://github.com/romanrios/cac-react-grupo3/assets/122373737/6ecbc949-9216-4713-a2bb-35e1d4cb63ad" alt="HTML Logo" width="60px">
+    </td>   
+    <td align="center" valign="middle">
+      <img src="https://github.com/romanrios/cac-react-grupo3/assets/122373737/02c18998-fbcd-453b-801a-4dbc2138678a" alt="CSS Logo" width="60px">
+    </td>
+      <td align="center" valign="middle">
+      <img src="https://github.com/romanrios/cac-react-grupo3/assets/122373737/90e36445-35fb-4eb8-82f4-58fdae8dab34" alt="JavaScript Logo" width="60px">
+     <td align="center" valign="middle">
+      <img src="https://github.com/romanrios/cac-react-grupo3/assets/122373737/d028a3bf-abfd-479e-b166-82aa613b9d5b" alt="Bootstrap Logo" width="63px">
     </td>
     <td align="center" valign="middle">
-      <img src="https://github.com/romanrios/cac-react-grupo3/assets/122373737/6a73a20b-1bd0-4aa6-938d-3554261c293c" alt="Firebase Icon" width="100px">
+      <img src="https://github.com/romanrios/cac-react-grupo3/assets/122373737/478389f8-8173-4223-a276-468d79af48c2" alt="sweetalert2 Logo" width="120px">
     </td>
-  </tr>
+    </tr>
 </table>
-
-
 
 
 ### Propuesta principal: To Do List con funciones CRUD y conexión a Firebase
