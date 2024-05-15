@@ -17,7 +17,7 @@ export const Edit = () => {
 
   // Update Tarea
   const updateTarea = async (e) => {
-    const tareaDoc = await doc(db, "Tareas", id);
+    const tareaDoc = doc(db, "Tareas", id);
     e.preventDefault();
     await updateDoc(tareaDoc, {
       tarea: tarea,
