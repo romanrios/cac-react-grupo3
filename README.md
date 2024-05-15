@@ -1,8 +1,23 @@
-# CodoACodo React Grupo 3
+# CodoACodo React Grupo 3 🚀
 
-Codo a Codo 2024 | Especialización en React  | Comisión 24303 | Docente: Gabriel Muñoz
+Codo a Codo 2024 | Especialización en React  | Comisión 24303 | Docente: [Gabriel Muñoz](https://github.com/DevJumpProf)
 
-Grupo 3 | Integrantes: Julio Quintero, Marcela Novais, Natasha Berger, Román Ríos
+<table>
+  <thead>
+    <tr>
+      <th colspan="4"> Integrantes del Grupo 3 👨‍💻 👩‍💻 👩‍💻 👨‍💻 </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="https://github.com/juequin">Julio Quintero</a></td>
+      <td><a href="https://github.com/Cubitina">Marcela Novais</a></td>
+      <td><a href="https://github.com/NataNoEsta">Natasha Berger</a></td>
+      <td><a href="https://github.com/romanrios">Román Ríos</a></td>
+    </tr>
+  </tbody>
+</table>
+
 
 ### Proyecto Final: CRUD React
 <table>
@@ -34,10 +49,12 @@ Grupo 3 | Integrantes: Julio Quintero, Marcela Novais, Natasha Berger, Román R�
 | ---------------------- | ------ | --------------------------------------------------------------- | ---------------------------------------------------------- |
 | ToDo List V2     | <img src="https://github.com/romanrios/cac-react-grupo3/assets/122373737/da0de66d-7ddf-4c1a-91c8-88032ce6a983" width="300" >  | [Ver](https://github.com/romanrios/cac-react-grupo3/tree/main/ToDoMar/) | [Visitar](https://romanrios.github.io/cac-react-grupo3/ToDoMar/dist/) |
 
+
 #### Versión alternativa
 | Proyecto               | Imagen | Código                                                           | Web                                                        |
 | ---------------------- | ------ | ---------------------------------------------------------------- | ---------------------------------------------------------- |
 | ToDo List V1      | <img src="https://github.com/romanrios/cac-react-grupo3/assets/122373737/51e368f4-b256-4dfc-bb28-cb3f2bd3346e" width="200" >    | [Ver](https://github.com/romanrios/cac-react-grupo3/tree/main/ToDoRoman/) | [Visitar](https://romanrios.github.io/cac-react-grupo3/ToDoRoman/dist/) | 
+
 
 
 
