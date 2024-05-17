@@ -11,7 +11,6 @@ export const AuthProvider = ({ children }) => {
       return userId ? localStorage.setItem(userId) : {}
 
     } catch (e) {
-      console.log(e)
       return {
         user: "",
         logged: false
@@ -21,7 +20,7 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     localStorage.setItem('userId', JSON.stringify(user))
   }, [user])
-  console.log('logged!')
+  // console.log('logged!')
 
   const login = (values) => {
     signInWithEmailAndPassword(auth, values.email, values.password)
@@ -39,15 +38,16 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       console.log(user)
+
       try {
         user
           ? setUser({
             email: user.email,
-            logged: true
+            logged: false
           })
           : setUser({
             email: null,
-            logged: false
+            logged: null
           })
 
       } catch (err) {
@@ -62,7 +62,7 @@ export const AuthProvider = ({ children }) => {
   }
 
   return (
-    <AuthContext.Provider values={{
+    <AuthContext.Provider value={{
       user,
       login,
       logout,

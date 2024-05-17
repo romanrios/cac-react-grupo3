@@ -15,27 +15,23 @@ function App() {
   return (
     <>
       <Header />
-      <HashRouter>
-        <Routes>
-          <Route path="/" element={<Show />} />
-          <Route path="/edit/:id" element={<Edit />} />
-          <Route path="/create" element={<Create />} />
-
-        </Routes>
-      </HashRouter>
-      <Footer />
       <AuthProvider>
-      <BrowserRouter> 
+        <BrowserRouter>
 
-        <Routes>
-       
-          <Route path="/login" element={<LoginScreen />} />
-          <Route path="/register" element={<Register />} />
-   
-          
-        </Routes>
-      </BrowserRouter>
-     </AuthProvider>
+          <Routes>
+            <Route path="/" element={<Show />} />
+            <Route path="/edit/:id" element={<Edit />} />
+            <Route path="/create" element={<Create />} />
+            <Route path="/login" element={<LoginScreen />} />
+            <Route path="/register" element={<Register />} />
+          </Routes>
+
+        </BrowserRouter>
+      </AuthProvider>
+      <Footer />
+
+
+
     </>
   );
 }

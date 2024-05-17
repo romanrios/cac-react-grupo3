@@ -22,6 +22,13 @@ export const Show = () => {
   const [tareas, setTareas] = useState([]);
   const tareasCollection = collection(db, "Tareas");
 
+  // Marcar tarea realizada
+  const updateRealizada = async (id, bool) => {
+    const realizadaDoc = doc(tareasCollection, id);
+    await updateDoc(realizadaDoc, { realizada: bool });
+    getTareas();
+  };
+
   // Esta va en el useEffect
   const getTareas = async () => {
     const data = await getDocs(tareasCollection);
@@ -42,7 +49,7 @@ export const Show = () => {
 
   // Confirmación Sweet Alert
   const confirmDelete = (id) => {
-    mySwal.fire({
+    Swal.fire({
       title: "¿Estás seguro?",
       text: "Esto es irreversible",
       icon: "warning",
@@ -54,7 +61,7 @@ export const Show = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         deleteTarea(id); // borra la tarea al confirmar
-        mySwal.fire({
+        Swal.fire({
           title: "¡Borrado!",
           text: "La tarea fue eliminada.",
           icon: "success",
@@ -84,7 +91,7 @@ export const Show = () => {
               <Task
                 tarea={tarea}
                 key={tarea.id}
-                // updateRealizada={updateRealizada}
+                updateRealizada={updateRealizada}
                 confirmDelete={confirmDelete}
               />
             ))}
