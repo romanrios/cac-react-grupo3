@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { Link, Navigate } from "react-router-dom";
 import Loader from "./Loader";
+import './loader.css'
 import { AuthContext } from '../../context/AuthContext';
 
 const LoginScreen = () => {
@@ -82,7 +83,7 @@ const LoginScreen = () => {
           >Ingresar</button>
         </form>
         <div className="flex-column col-sm py-2 mt-3 g-2 buttons">
-          <Link to="/register" className="btn btn-outline-info mb-2 mw-[80px]">
+          <Link to="/register" className="btn btn-outline-info mb-2">
             No tengo usuario
           </Link>
           
