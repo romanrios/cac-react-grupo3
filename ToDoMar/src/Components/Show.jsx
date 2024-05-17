@@ -22,13 +22,6 @@ export const Show = () => {
   const [tareas, setTareas] = useState([]);
   const tareasCollection = collection(db, "Tareas");
 
-  // Marcar tarea realizada
-  const updateRealizada = async (id, bool) => {
-    const realizadaDoc = doc(tareasCollection, id);
-    await updateDoc(realizadaDoc, { realizada: bool });
-    getTareas();
-  };
-
   // Esta va en el useEffect
   const getTareas = async () => {
     const data = await getDocs(tareasCollection);
