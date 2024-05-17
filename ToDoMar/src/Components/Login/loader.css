@@ -1,0 +1,40 @@
+.loader {
+  height: 50vh;
+  margin: auto;
+}
+.loader .pink {
+  width: 80px;
+  position: relative;
+  height: 80px;
+  background-color: pink;
+  border-radius: 50%;
+  animation: pinky 0.7s ease-in infinite;
+}
+.buttons {
+  display: flex;
+  flex-flow: row wrap;
+}
+@keyframes pinky {
+  0% {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+  }
+  35% {
+    background-color: rgb(250, 211, 218);
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+  }
+  60% {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+  }
+  100% {
+    background-color: rgb(202, 167, 173);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+  }
+}/*# sourceMappingURL=loader.css.map */
