@@ -42,7 +42,7 @@ export const Show = () => {
 
   // Confirmación Sweet Alert
   const confirmDelete = (id) => {
-    Swal.fire({
+    mySwal.fire({
       title: "¿Estás seguro?",
       text: "Esto es irreversible",
       icon: "warning",
@@ -54,7 +54,7 @@ export const Show = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         deleteTarea(id); // borra la tarea al confirmar
-        Swal.fire({
+        mySwal.fire({
           title: "¡Borrado!",
           text: "La tarea fue eliminada.",
           icon: "success",
@@ -84,7 +84,7 @@ export const Show = () => {
               <Task
                 tarea={tarea}
                 key={tarea.id}
-                updateRealizada={updateRealizada}
+                // updateRealizada={updateRealizada}
                 confirmDelete={confirmDelete}
               />
             ))}

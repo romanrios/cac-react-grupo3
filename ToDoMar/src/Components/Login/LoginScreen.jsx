@@ -22,23 +22,11 @@ const LoginScreen = () => {
   })
 
   const handleLogin = () => {
-    
+    return null
   }
-
   return (
     <>
-      <form onSubmit={handleLogin}>
-        <label>Email
-          <input 
-            placeholder="johndoe@mail.com"
-          />
-        </label>
-        <label>password
-          <input 
-            placeholder="*******"
-          />
-        </label>
-      </form>
+     as
     </>
   )
 }
