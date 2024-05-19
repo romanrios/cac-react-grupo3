@@ -14,8 +14,9 @@ import { AuthContext, AuthProvider } from "./context/AuthContext.jsx";
 function App() {
   return (
     <>
-      <Header />
       <AuthProvider>
+        <Header />
+
         <BrowserRouter>
 
           <Routes>

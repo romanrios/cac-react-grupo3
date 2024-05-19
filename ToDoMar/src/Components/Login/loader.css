@@ -14,6 +14,10 @@
   display: flex;
   flex-flow: row wrap;
 }
+.pass-info {
+  font-size: 0.75rem;
+  color: #ccc;
+}
 @keyframes pinky {
   0% {
     width: 70px;

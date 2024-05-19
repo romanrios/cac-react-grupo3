@@ -21,25 +21,31 @@ const LoginScreen = () => {
       [e.target.name]: e.target.value
     });
   };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     setLoading(true)
     setTimeout(() => {
-      
       login(values)
-      if(user.logged){
+      if(!user.logged){
         setLoading(false)
-        return <p>logged!</p>
+
+        alert('Usuario o contraseña incorrectos')
+        return
       }else{
         setLoading(false)
-        alert('Usuario incorrecto')
-        return
+        alert("logged!")
+        return <Navigate to="/" replace />
+        
       }
       
     }, 1000);
   }
   if(loading) {
     return <Loader />
+  }
+  if(user.logged){
+    return <Navigate to="/" replace />
   }
   return (
     <>
@@ -53,7 +59,7 @@ const LoginScreen = () => {
          <div className="flex-column">
           <label 
             className="form-label d-flex"
-            htmlFor="email">Email
+            htmlFor="email">Email</label>
           <input
           className="form-control"
           type="email"
@@ -61,12 +67,12 @@ const LoginScreen = () => {
           name="email"
           value={values.email}
           onChange={handleInput}
-          /></label>
+          />
         </div>
         <div className="flex-column">
         <label 
           className="form-label d-flex"
-          htmlFor="password">Password
+          htmlFor="password">Password</label>
         <input
           className="form-control"
           type="password"
@@ -75,12 +81,15 @@ const LoginScreen = () => {
           value={values.password}
           onChange={handleInput}
           />
-          </label>
+          
           </div>
-          <button
+          <div className="flex-column my-2 p-1">
+            <button
             type="submit"
             className="btn btn-outline-primary"
           >Ingresar</button>
+          </div>
+          
         </form>
         <div className="flex-column col-sm py-2 mt-3 g-2 buttons">
           <Link to="/register" className="btn btn-outline-info mb-2">
