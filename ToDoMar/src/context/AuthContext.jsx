@@ -54,7 +54,7 @@ export const AuthProvider = ({ children }) => {
           })
           : setUser({
             email: null,
-            logged: null
+            logged: false
           })
 
       } catch (err) {
