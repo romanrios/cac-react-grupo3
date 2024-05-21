@@ -8,6 +8,7 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(() => {
     try {
       const userId = localStorage.getItem('userId');
+      console.log(user)
       return userId ? localStorage.setItem(userId) : {}
 
     } catch (e) {
@@ -24,16 +25,22 @@ export const AuthProvider = ({ children }) => {
 
   const login = (values) => {
     signInWithEmailAndPassword(auth, values.email, values.password)
-      .catch((e) => console.log(e.message))
+      .then((userCredential) => {
+       userCredential.user
+      })
+      .catch((e) => {
+        console.log(e.code)
+        console.log(e.message)
+      })
   }
   const register = (values) => {
     createUserWithEmailAndPassword(auth, values.email, values.password)
-      .catch((e) => console.log(e.message))
+    .catch((e) => console.log(e.message))
   }
   const loginWithGoogle = () => {
     signInWithPopup(auth, provider)
       .then(res => console.log(res))
-      .catch(e => console.log(e))
+      .catch(e => console.log(e.message))
   }
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
@@ -43,14 +50,15 @@ export const AuthProvider = ({ children }) => {
         user
           ? setUser({
             email: user.email,
-            logged: false
+            logged: true
           })
           : setUser({
             email: null,
-            logged: null
+            logged: false
           })
 
       } catch (err) {
+        console.log(err.code)
         console.log(err)
 
       }

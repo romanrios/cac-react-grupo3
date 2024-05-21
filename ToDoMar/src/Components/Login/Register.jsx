@@ -7,10 +7,12 @@ import './loader.css'
 const Register = () => {
 
   const { register, loginWithGoogle, user } = useContext(AuthContext)
-const [ loading, setLoading ] = useState(false)
+
+  const [loading, setLoading] = useState(false)
   const [values, setValues] = useState({
     email: "",
-    password: ""
+    password: "",
+    passwordRepeat: ""
   });
 
   const handleInput = (e) => {
@@ -18,12 +20,25 @@ const [ loading, setLoading ] = useState(false)
       ...values,
       [e.target.name]: e.target.value
     })
+
   }
   const handleSubmit = (e) => {
+    // const emailVal = /^\S+@\S+\.\S+$/;
+    const passwordVal = /(?=.*[!#@$^%*])[a-zA-Z0-9!#@$%*^]{6,100}$/;
     e.preventDefault();
+
+    if (values.password !== values.passwordRepeat && values.passwordRepeat !== "") {
+      alert('contraseña incorrecta!')
+      return
+    }
+    // if (!values.password.match(passwordVal)) {
+    //     alert('bad pass')
+    //     return
+    //   }
     setLoading(true)
+
     setTimeout(() => {
-      
+
       try {
         register(values)
         console.log('ok!')
@@ -33,7 +48,7 @@ const [ loading, setLoading ] = useState(false)
       }
     }, 1000);
   }
-  if(loading){
+  if (loading) {
     return <Loader />
   }
   return (
@@ -48,36 +63,55 @@ const [ loading, setLoading ] = useState(false)
             <div className="flex-column">
               <label
                 className="form-label d-flex"
-                htmlFor="email">Email
-                <input
-                  className="form-control"
-                  type="email"
-                  placeholder="email@mail.com"
-                  name="email"
-                  value={values.email}
-                  onChange={handleInput}
-                /></label>
+                htmlFor="email">Email</label>
+              <input
+                className="form-control"
+                type="email"
+                placeholder="email@mail.com"
+                name="email"
+                value={values.email}
+                onChange={handleInput}
+              />
+            </div>
+            <div className="flex-column">
+              <label
+                className="form-label d-flex my-1"
+                htmlFor="password">Password</label>
+              <input
+                className="form-control"
+                type="password"
+                placeholder="*******"
+                name="password"
+                value={values.password}
+                onChange={handleInput}
+              />
+
+            </div>
+            <div className="flex-row">
+              <p className="pass-info mb-2 text-start">La contraseña debe ser de 6 o más caracteres y contener: 1 letra mayúscula y 1 número.-</p>
             </div>
             <div className="flex-column">
               <label
                 className="form-label d-flex"
-                htmlFor="password">Password
-                <input
-                  class="form-control"
-                  type="password"
-                  placeholder="*******"
-                  name="password"
-                  value={values.password}
-                  onChange={handleInput}
-                />
-              </label>
+                htmlFor="passwordRepeat">Repetir contraseña</label>
+              <input
+                className="form-control"
+                type="password"
+                placeholder="*******"
+                name="passwordRepeat"
+                value={values.passwordRepeat}
+                onChange={handleInput}
+              />
+
+            </div>
+            <div className="flex-column my-2 p-1">
+              <button
+                type="submit"
+                className="btn btn-outline-primary"
+              >Crear
+              </button>
             </div>
 
-            <button
-              type="submit"
-              className="btn btn-outline-primary"
-            >Crear
-            </button>
           </form>
           <div className="flex-column col-sm py-2 mt-3 g-2 buttons">
             <Link to="/login" className="btn btn-outline-info mb-2">
