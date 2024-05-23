@@ -1,6 +1,6 @@
 //importaciones
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 
 import { collection, addDoc } from "firebase/firestore";
 import { db } from "../firebaseConfig/firebase.js";
@@ -10,11 +10,14 @@ export const Create = () => {
   const [tarea, setTarea] = useState("Nueva tarea");
   const [realizada, setRealizada] = useState(false);
 
+  // Capturo el id
+  const { userId } = useParams();
+
   // navegación luego de que se ejecute una función
   const navigate = useNavigate();
 
   // referenciar a la basedate (colección) de firestore. Primero se llama a la colección que es db y segundo parámetro es el nombre de la base de datos
-  const tareasCollection = collection(db, "Tareas");
+  const tareasCollection = collection(db, userId /*"Tareas"*/);
 
   // función para crear una tarea
   const createTarea = async (e) => {
@@ -23,7 +26,7 @@ export const Create = () => {
       tarea: tarea,
       realizada: false, // UNA TAREA NUEVA NUNCA ESTÁ REALIZADA
     }); //el primer parámetro es donde quiero volcar la info, el segundo son los datos a agregar
-    navigate("/"); //quiero que navigate me lleve adónde están todos los datos una vez que creamos el nuevo ingreso.
+    navigate(`/show/${userId}`); //quiero que navigate me lleve adónde están todos los datos una vez que creamos el nuevo ingreso.
   };
   return (
     <>

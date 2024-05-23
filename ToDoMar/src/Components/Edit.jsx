@@ -13,22 +13,22 @@ export const Edit = () => {
   const navigate = useNavigate();
 
   // Capturo el id
-  const { id } = useParams();
+  const { userId, id } = useParams();
 
   // Update Tarea
   const updateTarea = async (e) => {
-    const tareaDoc = doc(db, "Tareas", id);
+    const tareaDoc = doc(db, userId /*"Tareas"*/, id);
     e.preventDefault();
     await updateDoc(tareaDoc, {
       tarea: tarea,
       realizada: false,
     });
-    navigate("/");
+    navigate(`/show/${userId}`);
   };
 
   // Traer tarea por Id
   const getTareaByID = async (id) => {
-    const tareaDoc = await getDoc(doc(db, "Tareas", id));
+    const tareaDoc = await getDoc(doc(db, userId /*"Tareas"*/, id));
     if (tareaDoc.exists()) {
       setTarea(tareaDoc.data().tarea);
       setRealizada(false);
@@ -59,7 +59,7 @@ export const Edit = () => {
             <button type="submit" className="btn btn-primary">
               Confirmar edición
             </button>
-            <Link to="/" className="btn btn-danger">
+            <Link to={`/show/${userId}`} className="btn btn-danger">
               Cancelar
             </Link>
           </div>

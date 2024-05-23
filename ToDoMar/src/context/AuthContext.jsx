@@ -1,83 +1,89 @@
 import { createContext, useState, useEffect } from "react";
 import { auth, provider } from "../firebaseConfig/firebase";
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, signInWithPopup } from "firebase/auth";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  onAuthStateChanged,
+  signOut,
+  signInWithPopup,
+} from "firebase/auth";
 
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(() => {
     try {
-      const userId = localStorage.getItem('userId');
-      console.log(user)
-      return userId ? localStorage.setItem(userId) : {}
-
+      const userId = localStorage.getItem("userId");
+      // console.log(user)
+      return userId ? localStorage.setItem(userId) : {};
     } catch (e) {
       return {
         user: "",
-        logged: false
-      }
+        logged: false,
+      };
     }
   });
   useEffect(() => {
-    localStorage.setItem('userId', JSON.stringify(user))
-  }, [user])
+    localStorage.setItem("userId", JSON.stringify(user));
+  }, [user]);
   // console.log('logged!')
 
   const login = (values) => {
     signInWithEmailAndPassword(auth, values.email, values.password)
       .then((userCredential) => {
-       userCredential.user
+        userCredential.user;
       })
       .catch((e) => {
-        console.log(e.code)
-        console.log(e.message)
-      })
-  }
+        console.log(e.code);
+        console.log(e.message);
+      });
+  };
   const register = (values) => {
-    createUserWithEmailAndPassword(auth, values.email, values.password)
-    .catch((e) => console.log(e.message))
-  }
+    createUserWithEmailAndPassword(auth, values.email, values.password).catch(
+      (e) => console.log(e.message)
+    );
+  };
   const loginWithGoogle = () => {
     signInWithPopup(auth, provider)
-      .then(res => console.log(res))
-      .catch(e => console.log(e.message))
-  }
+      .then((res) => console.log(res))
+      .catch((e) => console.log(e.message));
+  };
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
-      console.log(user)
+      console.log(user);
 
       try {
         user
           ? setUser({
-            email: user.email,
-            logged: true
-          })
+              email: user.email,
+              logged: true,
+            })
           : setUser({
-            email: null,
-            logged: false
-          })
-
+              email: null,
+              logged: false,
+            });
       } catch (err) {
-        console.log(err.code)
-        console.log(err)
-
+        console.log(err.code);
+        console.log(err);
       }
-    })
-  }, [])
+    });
+  }, []);
 
   const logout = () => {
-    signOut(auth)
-  }
+    signOut(auth);
+  };
 
   return (
-    <AuthContext.Provider value={{
-      user,
-      login,
-      logout,
-      register,
-      loginWithGoogle
-    }}>
+    <AuthContext.Provider
+      value={{
+        user,
+        login,
+        logout,
+        register,
+        loginWithGoogle,
+      }}
+    >
       {children}
     </AuthContext.Provider>
-  )
-}
+  );
+};

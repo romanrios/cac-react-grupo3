@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export const Task = ({ tarea, updateRealizada, confirmDelete }) => {
+export const Task = ({ tarea, updateRealizada, confirmDelete, userId }) => {
   return (
     <>
       <tr className={tarea.realizada ? "fondoRealizada" : ""}>
@@ -29,7 +29,7 @@ export const Task = ({ tarea, updateRealizada, confirmDelete }) => {
 
         <td className="editarTareas">
           <Link
-            to={`edit/${tarea.id}`}
+            to={`/edit/${userId}/${tarea.id}`}
             className="btn btn-outline-primary btn-sm"
           >
             <i className="fa-solid fa-pen-to-square"></i>

@@ -1,6 +1,7 @@
 .loader {
   height: 50vh;
-  margin: auto;
+  text-align: center;
+  margin: 50px;
 }
 .loader .pink {
   width: 80px;

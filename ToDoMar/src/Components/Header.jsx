@@ -1,10 +1,16 @@
 import { AuthContext } from "../context/AuthContext";
 import { useContext } from "react";
-import { Link, Navigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export const Header = () => {
+  const { logout, user } = useContext(AuthContext);
 
-  const { logout, user } = useContext(AuthContext)
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    await logout();
+    setTimeout(() => navigate("/login"), 1000);
+  };
 
   return (
     <>
@@ -15,16 +21,21 @@ export const Header = () => {
         <h5>
           <i>No más olvidos</i>
         </h5>
-        <div className="d-flex">
-           {
-            user.logged 
-              ? <button className="btn btn-danger" onClick={() => logout()}>logout</button>
-              : <a href="/login" className="btn btn-primary m-2">Login</a>
-
-           }
+        <div className="m-3">
+          {user.logged ? (
+            <button
+              className="btn btn-outline-danger btn-sm"
+              onClick={() => handleLogout()}
+            >
+              logout
+            </button>
+          ) : (
+            <a href="/login" className="btn btn-outline-primary btn-sm">
+              Login
+            </a>
+          )}
         </div>
       </div>
-
     </>
   );
 };

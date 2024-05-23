@@ -1,6 +1,6 @@
 //importaciones
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { Task } from "./Task.jsx";
 
 import {
@@ -20,7 +20,11 @@ const mySwal = withReactContent(Swal);
 //componente Show
 export const Show = () => {
   const [tareas, setTareas] = useState([]);
-  const tareasCollection = collection(db, "Tareas");
+
+  // Capturo el id
+  const { userId } = useParams();
+
+  const tareasCollection = collection(db, userId /*"Tareas"*/);
 
   // Marcar tarea realizada
   const updateRealizada = async (id, bool) => {
@@ -93,6 +97,7 @@ export const Show = () => {
                 key={tarea.id}
                 updateRealizada={updateRealizada}
                 confirmDelete={confirmDelete}
+                userId={userId}
               />
             ))}
           </tbody>
@@ -100,7 +105,7 @@ export const Show = () => {
 
         <div>
           <br></br>
-          <Link to="/create" className="crearTarea">
+          <Link to={`/create/${userId}`} className="crearTarea">
             <button className="btn btn-primary">Agregar nueva tarea</button>
           </Link>
         </div>
