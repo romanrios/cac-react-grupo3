@@ -1,7 +1,8 @@
 //importaciones
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useParams, Link } from "react-router-dom";
 import { Task } from "./Task.jsx";
+import { AuthContext } from "../context/AuthContext.jsx";
 
 import {
   collection,
@@ -19,6 +20,8 @@ const mySwal = withReactContent(Swal);
 
 //componente Show
 export const Show = () => {
+
+  const { user } = useContext(AuthContext)
   const [tareas, setTareas] = useState([]);
 
   // Capturo el id
@@ -36,7 +39,6 @@ export const Show = () => {
   // Esta va en el useEffect
   const getTareas = async () => {
     const data = await getDocs(tareasCollection);
-
     setTareas(
       data.docs.map((doc) => ({
         ...doc.data(),
@@ -53,7 +55,7 @@ export const Show = () => {
 
   // Confirmación Sweet Alert
   const confirmDelete = (id) => {
-    Swal.fire({
+    mySwal.fire({
       title: "¿Estás seguro?",
       text: "Esto es irreversible",
       icon: "warning",
@@ -65,11 +67,14 @@ export const Show = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         deleteTarea(id); // borra la tarea al confirmar
-        Swal.fire({
+        setTimeout(() => {
+            mySwal.fire({
           title: "¡Borrado!",
           text: "La tarea fue eliminada.",
           icon: "success",
         });
+        },1000)
+      
       }
     });
   };

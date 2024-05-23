@@ -6,7 +6,9 @@ import { db } from "../firebaseConfig/firebase.js";
 
 export const Edit = () => {
   // Estados
-  const [tarea, setTarea] = useState("Nueva tarea");
+  const [tarea, setTarea] = useState({
+    tarea: ""
+  });
   const [realizada, setRealizada] = useState(false);
 
   // Redirección
