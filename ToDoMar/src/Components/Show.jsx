@@ -20,8 +20,7 @@ const mySwal = withReactContent(Swal);
 
 //componente Show
 export const Show = () => {
-
-  const { user } = useContext(AuthContext)
+  const { user } = useContext(AuthContext);
   const [tareas, setTareas] = useState([]);
 
   // Capturo el id
@@ -55,28 +54,29 @@ export const Show = () => {
 
   // Confirmación Sweet Alert
   const confirmDelete = (id) => {
-    mySwal.fire({
-      title: "¿Estás seguro?",
-      text: "Esto es irreversible",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Sí, borrarlo",
-      cancelButtonText: "Cancelar",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        deleteTarea(id); // borra la tarea al confirmar
-        setTimeout(() => {
+    mySwal
+      .fire({
+        title: "¿Estás seguro?",
+        text: "Esto es irreversible",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Sí, borrarlo",
+        cancelButtonText: "Cancelar",
+      })
+      .then((result) => {
+        if (result.isConfirmed) {
+          deleteTarea(id); // borra la tarea al confirmar
+          setTimeout(() => {
             mySwal.fire({
-          title: "¡Borrado!",
-          text: "La tarea fue eliminada.",
-          icon: "success",
-        });
-        },1000)
-      
-      }
-    });
+              title: "¡Borrado!",
+              text: "La tarea fue eliminada.",
+              icon: "success",
+            });
+          }, 1000);
+        }
+      });
   };
 
   useEffect(() => {
@@ -87,25 +87,36 @@ export const Show = () => {
     <>
       <div className="contenedorShow">
         <table className="tablaTareas">
-          <thead className="tituloTabla">
-            <tr>
-              <th>Realizada</th>
-              <th>Descripción de la Tarea</th>
-              <th>Editar</th>
-            </tr>
-          </thead>
-
-          <tbody>
-            {tareas.map((tarea) => (
-              <Task
-                tarea={tarea}
-                key={tarea.id}
-                updateRealizada={updateRealizada}
-                confirmDelete={confirmDelete}
-                userId={userId}
-              />
-            ))}
-          </tbody>
+          {tareas[0] ? (
+            <>
+              <thead className="tituloTabla">
+                <tr>
+                  <th>Realizada</th>
+                  <th>Descripción de la Tarea</th>
+                  <th>Editar</th>
+                </tr>
+              </thead>
+              <tbody>
+                {tareas.map((tarea) => (
+                  <Task
+                    tarea={tarea}
+                    key={tarea.id}
+                    updateRealizada={updateRealizada}
+                    confirmDelete={confirmDelete}
+                    userId={userId}
+                  />
+                ))}
+              </tbody>
+            </>
+          ) : (
+            <>
+              <tbody>
+                <tr>
+                  <th>Todavía no ingresaste ninguna tarea</th>
+                </tr>
+              </tbody>
+            </>
+          )}
         </table>
 
         <div>

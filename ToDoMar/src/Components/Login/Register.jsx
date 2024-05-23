@@ -110,7 +110,7 @@ const Register = () => {
               />
             </div>
             <div className="flex-column my-2 p-1">
-              <button type="submit" className="btn btn-outline-primary">
+              <button type="submit" className="btn btn-primary">
                 Crear
               </button>
             </div>

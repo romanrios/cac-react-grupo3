@@ -21,6 +21,11 @@
   color: rgb(56, 56, 56);
 }
 
+.noMasOlvidos {
+  font-style: italic;
+  color: #5c5c6685;
+}
+
 /* Componente Show */
 .contenedorShow {
   margin-top: 20px;
@@ -79,6 +84,11 @@ tr:hover {
 .tdTareaRealizada {
   text-align: start;
   text-decoration: line-through;
+}
+
+.tdTarea::first-letter,
+.tdTareaRealizada::first-letter {
+  text-transform: uppercase;
 }
 
 .fondoRealizada {
