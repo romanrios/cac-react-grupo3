@@ -42,10 +42,10 @@ const Register = () => {
     setTimeout(() => {
       try {
         register(values);
-        console.log("ok!");
+        // console.log("ok!");
         setLoading(false);
       } catch (err) {
-        console.log(err);
+        // console.log(err);
       }
     }, 1000);
   };
