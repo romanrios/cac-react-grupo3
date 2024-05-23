@@ -30,7 +30,7 @@ export const Header = () => {
               logout
             </button>
           ) : (
-            <a href="/login" className="btn btn-outline-primary btn-sm">
+            <a href="./login" className="btn btn-outline-primary btn-sm">
               Login
             </a>
           )}
