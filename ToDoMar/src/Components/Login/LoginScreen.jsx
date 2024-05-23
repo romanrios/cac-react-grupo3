@@ -40,7 +40,7 @@ const LoginScreen = () => {
       } else {
         setLoading(false);
         alert("¡Logueo exitoso!");
-        console.log(user);
+        // console.log(user);
         // return <Navigate to="/" replace />;
       }
     }, 1000);
