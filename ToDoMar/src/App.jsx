@@ -8,7 +8,7 @@ import LoginScreen from "./Components/Login/LoginScreen.jsx";
 import Register from "./Components/Login/Register.jsx";
 // bootstrap
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./App.css";
+import "./styles/App.css";
 import { AuthContext, AuthProvider } from "./context/AuthContext.jsx";
 
 function App() {
