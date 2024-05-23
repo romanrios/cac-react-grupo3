@@ -1,4 +1,4 @@
-import { HashRouter, Routes, Route, BrowserRouter } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import { Header } from "./Components/Header.jsx";
 import { Show } from "./Components/Show.jsx";
 import { Create } from "./Components/Create.jsx";
@@ -15,7 +15,7 @@ function App() {
   return (
     <>
       <AuthProvider>
-        <BrowserRouter>
+        <HashRouter>
           <Header />
           <Routes>
             <Route path="/" element={<LoginScreen />} />
@@ -26,7 +26,7 @@ function App() {
             <Route path="/login" element={<LoginScreen />} />
             <Route path="/register" element={<Register />} />
           </Routes>
-        </BrowserRouter>
+        </HashRouter>
       </AuthProvider>
       <Footer />
     </>
