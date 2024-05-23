@@ -67,11 +67,14 @@ export const Show = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         deleteTarea(id); // borra la tarea al confirmar
-        mySwal.fire({
+        setTimeout(() => {
+            mySwal.fire({
           title: "¡Borrado!",
           text: "La tarea fue eliminada.",
           icon: "success",
         });
+        },1000)
+      
       }
     });
   };
