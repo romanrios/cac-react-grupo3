@@ -1,7 +1,8 @@
 //importaciones
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useParams, Link } from "react-router-dom";
 import { Task } from "./Task.jsx";
+import { AuthContext } from "../context/AuthContext.jsx";
 
 import {
   collection,
@@ -19,6 +20,8 @@ const mySwal = withReactContent(Swal);
 
 //componente Show
 export const Show = () => {
+
+  const { user } = useContext(AuthContext)
   const [tareas, setTareas] = useState([]);
 
   // Capturo el id
@@ -74,7 +77,7 @@ export const Show = () => {
   };
 
   useEffect(() => {
-    getTareas().then(el => console.log(el));
+    getTareas();
   }, []);
 
   return (
