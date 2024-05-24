@@ -26,6 +26,22 @@
   color: #5c5c6685;
 }
 
+#github {
+  width: 30px;
+}
+
+.git {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+}
+
+small{
+  margin-left: 10px;
+}
+
 /* Componente Show */
 .contenedorShow {
   margin-top: 20px;
