@@ -15,11 +15,9 @@ export const Header = () => {
   return (
     <>
       <div className="header d-flex flex-column">
-        <h1 className="display-2">
-          To.do list.
-          <i className="fa-solid fa-pen-to-square" />
-        </h1>
-        <h5 className="noMasOlvidos">No más olvidos</h5>
+        <div>
+          <img src="./todolist.svg" alt="todolist" className="title" />
+        </div>
         <div className="m-3">
           {user.logged ? (
             <>

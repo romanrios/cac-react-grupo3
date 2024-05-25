@@ -21,6 +21,13 @@
   color: rgb(56, 56, 56);
 }
 
+.title {
+  margin-left: -2rem;
+  margin-top: 25px;
+  margin-bottom: 10px;
+  width: 300px;
+}
+
 .noMasOlvidos {
   font-style: italic;
   color: #5c5c6685;
