@@ -37,6 +37,32 @@ export const Edit = () => {
     }
   };
 
+  //función para preguntar si quiere confirmar la edición
+  const confirmEdit = (id) => {
+
+    Swal.fire({
+      title: "¿Estás seguro?",
+      text: "Esta acción es irreversible",
+      imageUrl: "../../public/ansiedad.png",
+      imageWidth: 400,
+      imageAlt: "ansiedad",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Sí, editar",
+      cancelButtonText: "Cancelar",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        updateTarea(id) //
+        Swal.fire({
+          title: "¡Editado!",
+          text: "Tu tarea fue editada.",
+          icon: "success"
+        });
+      }
+    });
+  };
+
   // Traigo la tarea apenas coarga el componente Edit
   useEffect(() => {
     getTareaByID(id);
@@ -46,7 +72,7 @@ export const Edit = () => {
     <>
       <div className="contenedorForm">
         <h3>Editar tarea</h3>
-        <form onSubmit={updateTarea}>
+        <form onSubmit={confirmEdit}>
           <div className="inputs">
             <label className="form-label">Tarea</label>
             <input
@@ -58,7 +84,9 @@ export const Edit = () => {
             />
           </div>
           <div className="formButtonsCreate">
-            <button type="submit" className="btn btn-primary">
+            <button type="submit" 
+            onClick={() => (tarea.id)}
+            className="btn btn-primary">
               Confirmar edición
             </button>
             <Link to={`/show/${userId}`} className="btn btn-danger">
