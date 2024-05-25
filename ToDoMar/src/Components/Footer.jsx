@@ -9,7 +9,7 @@ export const Footer = () => {
           href="https://github.com/romanrios/cac-react-grupo3/"
           target="_blank"
         >
-          <img id="github" src="./public/github-logo.svg" alt="github logo" />
+          <img id="github" src="./github-logo.svg" alt="github logo" />
           <small>Visitá nuestro repositorio</small>
         </a>
       </div>
