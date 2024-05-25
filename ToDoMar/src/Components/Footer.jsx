@@ -3,6 +3,7 @@ export const Footer = () => {
     <>
       <div className="footer">
         <small>© 2024 | Grupo 3 🚀 CodoACodo React</small>
+
         <a
           className="git"
           href="https://github.com/romanrios/cac-react-grupo3/"
