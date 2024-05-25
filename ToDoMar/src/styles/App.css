@@ -15,6 +15,7 @@
   justify-content: space-between;
 }
 
+/* Componente Header */
 .header {
   padding: 15px 0;
   background-color: rgb(227, 231, 251);
@@ -34,7 +35,8 @@
 }
 
 #github {
-  width: 30px;
+  width: 25px;
+  margin-right: 10px;
 }
 
 .git {
@@ -43,10 +45,6 @@
   justify-content: center;
   align-items: center;
   padding: 30px;
-}
-
-small{
-  margin-left: 10px;
 }
 
 /* Componente Show */
@@ -76,17 +74,11 @@ tr:hover {
   max-width: 700px;
   width: 95%;
   flex: 1;
-  /* border-spacing: 2px; */
 }
 
 .tituloTabla {
   background-color: rgb(200, 188, 247);
 }
-
-/* tbody {
-  flex-direction: row;
-  margin: 5px;
-} */
 
 .editarTareas {
   display: flex;
@@ -135,7 +127,6 @@ form {
 
 input[type="text"],
 select {
-  /* width: 60%; */
   max-width: 400px;
   padding: 3px 10px;
   margin: 10px 0;
@@ -148,10 +139,6 @@ input[type="text"]:hover {
   border: 1px solid rgb(172, 176, 248);
 }
 
-/* #inputInvisible {
-  display: none;
-} */
-
 .formButtonsCreate {
   display: flex;
   align-items: center;
@@ -160,7 +147,19 @@ input[type="text"]:hover {
 }
 
 /* Componente Create */
-
 .contenedorForm {
   margin-top: 20px;
+}
+
+/* Footer */
+.footer {
+  margin-top: 35px;
+  padding-top: 35px;
+  padding-bottom: 20px;
+  background-color: rgb(227, 231, 251);
+  color: rgb(56, 56, 56);
+}
+
+.container {
+  max-width: 350px;
 }
