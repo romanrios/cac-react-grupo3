@@ -23,9 +23,9 @@ export const Edit = () => {
   const { userId, id } = useParams();
 
   // Update Tarea
-  const updateTarea = async (e) => {
+  const updateTarea = async () => {
     const tareaDoc = doc(db, userId /*"Tareas"*/, id);
-    e.preventDefault();
+    // e.preventDefault();
     await updateDoc(tareaDoc, {
       tarea: tarea,
       realizada: false,
@@ -43,7 +43,8 @@ export const Edit = () => {
   };
 
   //función para preguntar si quiere confirmar la edición
-  const confirmEdit = (id) => {
+  const confirmEdit = (e) => {
+    e.preventDefault();
     mySwal
       .fire({
         title: "¿Estás seguro?",
