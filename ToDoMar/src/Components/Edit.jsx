@@ -4,10 +4,15 @@ import { useParams, Link, useNavigate } from "react-router-dom";
 import { getDoc, updateDoc, doc } from "firebase/firestore";
 import { db } from "../firebaseConfig/firebase.js";
 
+//sweet alert
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+const mySwal = withReactContent(Swal);
+
 export const Edit = () => {
   // Estados
   const [tarea, setTarea] = useState({
-    tarea: ""
+    tarea: "",
   });
   const [realizada, setRealizada] = useState(false);
 
@@ -39,28 +44,29 @@ export const Edit = () => {
 
   //función para preguntar si quiere confirmar la edición
   const confirmEdit = (id) => {
-
-    Swal.fire({
-      title: "¿Estás seguro?",
-      text: "Esta acción es irreversible",
-      imageUrl: "../../public/ansiedad.png",
-      imageWidth: 400,
-      imageAlt: "ansiedad",
-      showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Sí, editar",
-      cancelButtonText: "Cancelar",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        updateTarea(id) //
-        Swal.fire({
-          title: "¡Editado!",
-          text: "Tu tarea fue editada.",
-          icon: "success"
-        });
-      }
-    });
+    mySwal
+      .fire({
+        title: "¿Estás seguro?",
+        text: "Esta acción es irreversible",
+        imageUrl: "./ansiedad.png",
+        imageWidth: 400,
+        imageAlt: "ansiedad",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Sí, editar",
+        cancelButtonText: "Cancelar",
+      })
+      .then((result) => {
+        if (result.isConfirmed) {
+          updateTarea(id); //
+          mySwal.fire({
+            title: "¡Editado!",
+            text: "Tu tarea fue editada.",
+            icon: "success",
+          });
+        }
+      });
   };
 
   // Traigo la tarea apenas coarga el componente Edit
@@ -84,9 +90,11 @@ export const Edit = () => {
             />
           </div>
           <div className="formButtonsCreate">
-            <button type="submit" 
-            onClick={() => (tarea.id)}
-            className="btn btn-primary">
+            <button
+              type="submit"
+              onClick={() => tarea.id}
+              className="btn btn-primary"
+            >
               Confirmar edición
             </button>
             <Link to={`/show/${userId}`} className="btn btn-danger">
