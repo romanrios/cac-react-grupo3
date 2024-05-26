@@ -1,8 +1,6 @@
 # CodoACodo React Grupo 3
 
 
-
-
 Codo a Codo 2024 | Especialización en React  | Comisión 24303 | Docente: [Gabriel Muñoz](https://github.com/DevJumpProf)
 
 <table>
@@ -68,7 +66,7 @@ Codo a Codo 2024 | Especialización en React  | Comisión 24303 | Docente: [Gabr
 
 | Proyecto               | Imagen | Código                                                           | Web                                                        |
 | ---------------------- | ------ | --------------------------------------------------------------- | ---------------------------------------------------------- |
-| ToDo List V2     | <img src="https://github.com/romanrios/cac-react-grupo3/assets/122373737/da0de66d-7ddf-4c1a-91c8-88032ce6a983" width="300" >  | [Ver](https://github.com/romanrios/cac-react-grupo3/tree/main/ToDoMar/) | [Visitar](https://romanrios.github.io/cac-react-grupo3/ToDoMar/dist/) |
+| ToDo List V2     | <img src="https://github.com/romanrios/cac-react-grupo3/assets/122373737/6ff86174-d482-4ded-a1ba-946b801e4440" width="300" >  | [Ver](https://github.com/romanrios/cac-react-grupo3/tree/main/ToDoMar/) | [Visitar](https://romanrios.github.io/cac-react-grupo3/ToDoMar/dist/) |
 
 
 #### Versión alternativa

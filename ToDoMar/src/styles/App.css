@@ -15,6 +15,7 @@
   justify-content: space-between;
 }
 
+/* Componente Header */
 .header {
   padding: 15px 0;
   background-color: rgb(227, 231, 251);
@@ -22,31 +23,14 @@
 }
 
 .title {
-  margin-left: -2rem;
-  margin-top: 25px;
-  margin-bottom: 10px;
-  width: 300px;
+  margin-top: 28px;
+  margin-bottom: 15px;
+  width: 250px;
 }
 
 .noMasOlvidos {
   font-style: italic;
   color: #5c5c6685;
-}
-
-#github {
-  width: 30px;
-}
-
-.git {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  padding: 30px;
-}
-
-small{
-  margin-left: 10px;
 }
 
 /* Componente Show */
@@ -68,7 +52,7 @@ td {
 }
 
 tr:hover {
-  background-color: rgb(201, 203, 253);
+  background-color: rgba(201, 210, 253, 0.603);
 }
 
 .tablaTareas {
@@ -76,17 +60,11 @@ tr:hover {
   max-width: 700px;
   width: 95%;
   flex: 1;
-  /* border-spacing: 2px; */
 }
 
 .tituloTabla {
-  background-color: rgb(200, 188, 247);
+  background-color: rgba(188, 194, 247, 0.801);
 }
-
-/* tbody {
-  flex-direction: row;
-  margin: 5px;
-} */
 
 .editarTareas {
   display: flex;
@@ -135,7 +113,6 @@ form {
 
 input[type="text"],
 select {
-  /* width: 60%; */
   max-width: 400px;
   padding: 3px 10px;
   margin: 10px 0;
@@ -148,10 +125,6 @@ input[type="text"]:hover {
   border: 1px solid rgb(172, 176, 248);
 }
 
-/* #inputInvisible {
-  display: none;
-} */
-
 .formButtonsCreate {
   display: flex;
   align-items: center;
@@ -160,7 +133,33 @@ input[type="text"]:hover {
 }
 
 /* Componente Create */
-
 .contenedorForm {
   margin-top: 20px;
+}
+
+/* Footer */
+.footer {
+  margin-top: 35px;
+  padding-top: 35px;
+  padding-bottom: 20px;
+  background-color: rgb(227, 231, 251);
+  color: rgb(56, 56, 56);
+}
+
+#github {
+  width: 25px;
+  margin-right: 10px;
+}
+
+.git {
+  display: block;
+  width: fit-content;
+  margin: auto;
+  padding-top: 18px;
+  padding-bottom: 30px;
+}
+
+/* bootstrap container fix*/
+.container {
+  max-width: 350px;
 }
