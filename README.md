@@ -90,6 +90,8 @@ Codo a Codo 2024 | Especialización en React  | Comisión 24303 | Docente: [Gabr
 | Repositorio con más<br>prácticas del curso | <img src="https://github.com/romanrios/cac-react-grupo3/assets/122373737/b5e97bfe-cf90-4a76-b155-6014e9a40476" width="200">  | [Visitar](https://github.com/romanrios/cac-react) | 
 
 
+### Video
+https://www.youtube.com/watch?v=k-l97QXpw4Q
 
 
 
